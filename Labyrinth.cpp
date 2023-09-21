@@ -13,72 +13,67 @@
 
 using namespace std;
 
-int main(){
-	srand(time(0));
+int main() {
+	srand(time(nullptr));
 	setlocale(0, "");
-	
 
 	cout << "Добро пожаловать!" << endl;
-	cout << "|||Колесникова Алина ||| 8 вариант " << endl << "||| 404 группа       ||| 1 лабораторная " << endl << endl;
-	cout << "Задан текст. В каждом слове текста оставить на своих местах первую и" << endl
-		<< "последнюю буквы, а в середине слова буквы перемешать" << endl << endl;
+	cout << "|||Колесникова Алина ||| 8 вариант " << endl << "||| 404 группа       ||| 2 лабораторная " << endl << endl;
+	cout << "Программа, которая по исходным данным m и n строит прямоугольный лабиринт m x n " << endl << endl;
 	int enter = 0;
 	//if (test()) {
-		do {
-			cout << "Введите 1, чтобы сгенерировать данные случайным образом" << endl;
-			cout << "Введите 2, чтобы ввести с клавиатуры" << endl;
-			cout << "Введите 3, чтобы использовать файл" << endl;
-			cout << "Введите 0, чтобы закончить" << endl;
-			enter = getInt();
-			if (enter == random || enter == keyboard || enter == file) {
-				int x,y;
-				stringC result;
+	do {
+		cout << "Введите 1, чтобы сгенерировать данные случайным образом" << endl;
+		cout << "Введите 2, чтобы ввести с клавиатуры" << endl;
+		cout << "Введите 3, чтобы использовать файл" << endl;
+		cout << "Введите 0, чтобы закончить" << endl;
+		enter = getInt();
+		if (enter == random || enter == keyboard || enter == file) {
+			int x, y;
 
-				auto metod = makeChoiceInput(enter);
-				metod->createNum(y,x);
 
-				Maze maze(y, x);
-				maze.generateTree();
-				system("cls");
-				maze.draw();
+			auto metod = makeChoiceInput(enter);
+			metod->createNum(y, x);
 
-				cout << "Результат работы программы: ";
-				cout << result.result << endl;
+			Maze maze(y, x);
+			maze.generateTree();
+			system("cls");
+			maze.draw();
 
-				/*if (enter == random || enter == keyboard) {
+			/*if (enter == random || enter == keyboard) {
+				cout << endl;
+				cout << "Введите 1, чтобы сохранить исходные данные" << endl;
+				cout << "Введите 2, чтобы не сохранить" << endl;
+				enter = getInt();
+				while (enter != save && enter != notSave) {
 					cout << endl;
 					cout << "Введите 1, чтобы сохранить исходные данные" << endl;
 					cout << "Введите 2, чтобы не сохранить" << endl;
 					enter = getInt();
-					while (enter != save && enter != notSave) {
-						cout << endl;
-						cout << "Введите 1, чтобы сохранить исходные данные" << endl;
-						cout << "Введите 2, чтобы не сохранить" << endl;
-						enter = getInt();
-					}
-					if (enter == save) {
-						saveData(str);
-					}
+				}
+				if (enter == save) {
+					saveData(str);
+				}
 
-				}*/
-				cout << endl;
+			}*/
+			cout << endl;
 
-				/*	cout << "Введите 1, чтобы сохранить результат" << endl;
+			/*	cout << "Введите 1, чтобы сохранить результат" << endl;
+				cout << "Введите 2, чтобы не сохранить" << endl;
+				enter = getInt();
+				while (enter != save && enter != notSave) {
+					cout << endl;
+					cout << "Введите 1, чтобы сохранить  сохранить результат" << endl;
 					cout << "Введите 2, чтобы не сохранить" << endl;
 					enter = getInt();
-					while (enter != save && enter != notSave) {
-						cout << endl;
-						cout << "Введите 1, чтобы сохранить  сохранить результат" << endl;
-						cout << "Введите 2, чтобы не сохранить" << endl;
-						enter = getInt();
-					}
-					if (enter == save) {
-						saveResult(str);
-						return true;
-					}*/
-			}
+				}
+				if (enter == save) {
+					saveResult(str);
+					return true;
+				}*/
+		}
 
-		} while (enter);
+	} while (enter);
 	//}
 	return 0;
 }

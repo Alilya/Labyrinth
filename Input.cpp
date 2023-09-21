@@ -17,24 +17,35 @@ void randomInput::createNum(int& x, int& y) {
 	countX = getInt();
 	cout << "Введите максимальный размер для длины" << endl;
 	countY = getInt();
-
-	while (countX <= 0 || countY<=0) {
-		cout << "Число должно быть больше 0 " << endl;
-		cout << "Попробуйте еще раз " << endl;
-		countX = getInt();
-	}
-	x = rand() % countX;
-	y = rand() % countY;
 	
-
+	while (x < 5) {
+		x = rand() % countX;
+	}
+	while (y < 5) {
+		y = rand() % countY;
+	}
 	cout << endl;
 	cout << "Сгенерированные размеры лабиринта: " << x <<"x" << y << endl;
 	cout << endl;
+
+	std::this_thread::sleep_for(500ms);
 }
 
 void keyboardInput::createNum(int& x, int& y) {
 	cout << "Введите размеры лабиринта: " << endl;
-	cin >> x >> y;
+	cout << "Длина: " << endl;
+	x=getInt();
+	while (x < 5) {
+		cout << "Число должно быть больше 4, пропробуйте еще раз! "<< endl;
+		x = getInt();
+	}
+	cout << "Ширина: " << endl;
+	y = getInt();
+	while (y < 5) {
+		cout << "Число должно быть больше 4, пропробуйте еще раз! " << endl;
+		y = getInt();
+	}
+	std::this_thread::sleep_for(500ms);
 }
 
 bool checkEnter(string enterfile) {
@@ -60,7 +71,7 @@ void fileInput::createNum(int& x, int& y) {
 
 	ifstream filereading;
 	filereading.open(enterfile);
-	string save1, save2;
+
 	while (!filereading.is_open() || checkEnter(enterfile)) {
 		cout << "ошибка, введите корректный/существующий адрес файла" << endl;
 		cout << "введите полный путь файла " << endl;
@@ -79,7 +90,6 @@ void fileInput::createNum(int& x, int& y) {
 		buff = "";
 		getline(filereading, buff, '\0');
 		y = stoi(buff);
-		buff = "";
 		buff = "";
 	}
 	filereading.close();
