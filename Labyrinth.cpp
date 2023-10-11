@@ -1,6 +1,4 @@
-﻿// 19 1 лабиринт ломается 
-
-#include <iostream>
+﻿#include <iostream>
 #include "windows.h"
 #include <cstdlib>
 #include <ctime>
@@ -10,6 +8,7 @@
 #include "Input.h"
 #include "Maze.h"
 #include "Common.h"
+#include "Save.h"
 
 using namespace std;
 
@@ -31,7 +30,6 @@ int main() {
 		if (enter == random || enter == keyboard || enter == file) {
 			int x, y;
 
-
 			auto metod = makeChoiceInput(enter);
 			metod->createNum(y, x);
 
@@ -40,7 +38,7 @@ int main() {
 			system("cls");
 			maze.draw();
 
-			/*if (enter == random || enter == keyboard) {
+			if (enter == random || enter == keyboard) {
 				cout << endl;
 				cout << "Введите 1, чтобы сохранить исходные данные" << endl;
 				cout << "Введите 2, чтобы не сохранить" << endl;
@@ -52,10 +50,13 @@ int main() {
 					enter = getInt();
 				}
 				if (enter == save) {
-					saveData(str);
+					string strX = to_string(x);
+					string strY = to_string(y);
+
+					saveData(strX, strY);
 				}
 
-			}*/
+			}
 			cout << endl;
 
 			/*	cout << "Введите 1, чтобы сохранить результат" << endl;

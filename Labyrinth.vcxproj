@@ -133,9 +133,11 @@
     <ClCompile Include="Maze.cpp" />
     <ClCompile Include="Input.cpp" />
     <ClCompile Include="Common.cpp" />
+    <ClCompile Include="Save.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Common.h" />
+    <ClInclude Include="Save.h" />
     <ClInclude Include="Input.h" />
     <ClInclude Include="Maze.h" />
   </ItemGroup>
